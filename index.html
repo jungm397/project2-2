@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 INPUT 1 OUTPUT TEMPLATE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+
+
+        #charInput1 {
+
+        }
+
+        #charInput2 {
+
+        }
+
+        #submitButton {
+
+        }
+
+
+        #displayedImage {
+            display: none; 
+        }
+    </style>
+</head>
+<body>
+
+    
+
+    <input type="text" id="charInput1" maxlength="1">
+    <input type="text" id="charInput2" maxlength="1">
+
+
+    <button onclick="displayImage()" id="submitButton">Check your destination!</button>
+
+
+    <img id="displayedImage" src="" alt="Displayed Image">
+
+
+
+<script>
+    function displayImage() {
+        const imgElement = document.getElementById("displayedImage");
+
+
+        const input1_letter = document.getElementById("charInput1").value.toUpperCase();
+        const input2_letter = document.getElementById("charInput2").value.toUpperCase();
+
+
+        const imageMap = {
+            "AD": "https://content.tui.co.uk/adamtui/2019_6/6_12/3847811c-e11c-44c0-8524-aa6400c99ece/shutterstock_1177984306WebOriginalCompressed.jpg?i10c=img.resize(width:1080);img.resize(height:608);img.crop(width:1080%2Cheight:608)",
+            "LD": "https://cms.inspirato.com/ImageGen.ashx?image=%2Fmedia%2F5682444%2FLondon_Dest_16531610X.jpg&width=1081.5",
+            "MD": "https://images.prismic.io/bounce/f9fe3657-0901-4a18-979a-9fcebb33998e_florian-wehde-WBGjg0DsO_g-unsplash.jpg?auto=compress%2Cformat&w=1466&fit=crop&ar=3%3A2"
+        };
+
+
+        const inputKey = input1_letter + input2_letter;
+
+
+        if (imageMap[inputKey]) {
+            imgElement.src = imageMap[inputKey];
+            imgElement.style.display = "block";
+        } else {
+            alert("No matching destination found. Please enter valid letters.");
+            imgElement.style.display = "none";
+        }
+    }
+</script>
+
+
+</body>
+</html>
+
